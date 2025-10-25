@@ -24,7 +24,7 @@ Input privacy is achieved by employing homomorphic encryption. For output privac
 
 ## Project Example
 
-In this repository, we demonstrate the framework using a sample of **5000 residents in Australia**, linking the dataset to itself and calculating the **average age** of residents by province.
+In this repository, we demonstrate the framework using a sample of **10k residents in North Carolina Voter Database (NCVR)**, linking the dataset to itself and calculating the **average age** of residents by province.
 
 ## Getting Started
 
