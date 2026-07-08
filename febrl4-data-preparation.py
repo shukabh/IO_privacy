@@ -37,8 +37,8 @@ args = parser.parse_args()
 server_records = args.server_records
 client_records = args.client_records
 
-df1 = pd.read_csv(f'dataset/{server_records}_{client_records}/ncvoter_client_{client_records}.csv')
-df2 = pd.read_csv(f'dataset/{server_records}_{client_records}/ncvoter_server_{server_records}.csv')
+df1 = pd.read_csv(f'dataset/{server_records}_{client_records}/febrl4_client_{client_records}.csv')
+df2 = pd.read_csv(f'dataset/{server_records}_{client_records}/febrl4_server_{server_records}.csv')
 
 df1['FULL NAME'] = df1['FULL NAME'].astype(str)
 df2['FUZZY FULL NAME'] = df2['FUZZY FULL NAME'].astype(str)

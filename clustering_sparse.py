@@ -27,9 +27,9 @@ output_dir = f'out/{server_records}_{client_records}'
 os.makedirs(output_dir, exist_ok=True)
 
 # === Configuration ===
-payload_var = 'AGE'
-cross_tab_var = 'RACE'
-blocking_variable = 'COUNTY'
+payload_var = 'YOB'
+cross_tab_var = 'STATE'
+blocking_variable = 'STATE'
 fuzzy_names_filename = (
     f'dataset/{server_records}_{client_records}/'
     f'server_fuzzy_names_{server_records}_lsh200-50-100.pkl'
@@ -175,14 +175,3 @@ df_dic_path = f"{output_dir}/{name}_df_dic.pkl"
 with open(df_dic_path, 'wb') as f:
     pickle.dump(df_dic, f)
 print("Sparse one-hot encoding saved. Script complete.")
-
-# === Step 8: Build and save blocking_vars_server matrix ===
-id_to_block = dict(zip(dataset2['ID'], dataset2[blocking_variable]))
-blocking_matrix = (
-    cluster_dataset2_IDs.drop('Cluster_Id', axis=1)
-                      .applymap(lambda x: id_to_block.get(x, 'UNKNOWN') if x != 'NULL' else 'UNKNOWN')
-)
-blocking_matrix.to_pickle(
-    f"{output_dir}/server_blocking_vars_matrix.pkl"
-)
-print("Saved blocking_vars_server to server_blocking_vars_matrix.pkl")
